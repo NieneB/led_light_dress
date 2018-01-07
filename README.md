@@ -10,7 +10,4 @@ The things I do to make my dress:
 6. Making dress bodice. 
 
 
-## Things I learned:
 
-* Using a hemming foot on my sweing machine. 
-* 
