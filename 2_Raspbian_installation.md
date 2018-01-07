@@ -39,3 +39,9 @@ First things first! Change the Password and update the system!
 Get this repro:
 
 	git clone https://github.com/NieneB/led_light_dress.git
+
+## Clean shutdown raspberry pi
+
+Clean shutdown: 
+
+	sudo shutdown -h now
