@@ -1,5 +1,6 @@
 # Setting up Bluetooth connection
 
+
 	sudo apt-get install bluetooth python-gobject python-gobject-2 blueman bluez python-bluetooth 
 
 	sudo reboot

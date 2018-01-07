@@ -14,6 +14,6 @@ From bottom to top:
 
 Hemmed everything with pink thread.
 
-
+Choices are based on the amount of fabric I had available... Becuase my idea changed a lot and I coudn't make up my mind I just started and ended up with these layers! I did planned a lot, calculated which amount of fabric I would need but it just turned out to be different. 
 
 
