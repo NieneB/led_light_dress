@@ -12,6 +12,12 @@ In order to be able to connect through SSH I needed to enable it first on the SD
 
 From my laptop, through the wifi network, I detected the IP address of my PI.
 
+Getting own ip adres:
+
+	ifconfig
+
+Scanning form available ip adresses:
+
 	nmap -sn <IPadres>
 
 See: https://www.raspberrypi.org/documentation/remote-access/ip-address.md
@@ -27,3 +33,9 @@ First things first! Change the Password and update the system!
 	password
 	sudo apt-get update
 	sudo apt-get upgrade
+
+	sudo apt-get install build-essential git vim
+
+Get this repro:
+
+	git clone https://github.com/NieneB/led_light_dress.git
