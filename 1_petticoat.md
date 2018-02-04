@@ -4,9 +4,9 @@ Ordered Tule and Organza.
 
 6 layers made out of:
 	
-	* Tule Circle skirt 25cm 
-	* Tule Strip 30 cm x 500 cm
-	* Decoration ruffle strip(3 diff colours): 750cm x 10cm
+* Tule Circle skirt 25cm 
+* Tule Strip 30 cm x 500 cm
+* Decoration ruffle strip(3 diff colours): 750cm x 10cm
 
 First cut all coloured strips and hemmed them with a hemming foot on my sewing machine. So 6 x 7,5 meters! 
 

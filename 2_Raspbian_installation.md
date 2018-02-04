@@ -4,6 +4,7 @@ I installed Raspbian Stretch Lite. This because I won't be using any Desktop int
   
 ### 1. Format SD card and install Raspbian.
 I formatted my SD card and installed the Raspbian image on it. For the formatting I followed the steps from: https://www.pcworld.com/article/3176712/linux/how-to-format-an-sd-card-in-linux.html.
+
 Then downloaded the image from https://www.raspberrypi.org/downloads/raspbian/
 Using Etcher I wrote this to the SD card, as described in the installation guide. https://www.raspberrypi.org/documentation/installation/installing-images/README.md
 
