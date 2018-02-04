@@ -40,6 +40,10 @@ Get this repro:
 
 	git clone https://github.com/NieneB/led_light_dress.git
 
+## Reducing power consumption
+Add `/usr/bin/tvservice -o` to /etc/rc.local
+
+
 ## Clean shutdown raspberry pi
 
 Clean shutdown: 
