@@ -26,8 +26,8 @@ LED_INVERT     = False   # True to invert the signal (when using NPN transistor 
 SPEED=0.075
 
 # Size of your matrix
-MATRIX_WIDTH=12
-MATRIX_HEIGHT=8
+MATRIX_WIDTH=15
+MATRIX_HEIGHT=10
 
 # LED matrix layout
 # A list converting LED string number to physical grid layout
@@ -43,14 +43,29 @@ MATRIX_HEIGHT=8
 # The first LED is number 0                       |
 # Mine starts at the bottom left here: -----------/
 
-myMatrix=[95,94,93,92,91,90,89,88,87,86,85,84,
-          72,73,74,75,76,77,78,79,80,81,82,83,
-          71,70,69,68,67,66,65,64,63,62,61,60,
-          48,49,50,51,52,53,54,55,56,57,58,59,
-          47,46,45,44,43,42,41,40,39,38,37,36,
-          24,25,26,27,28,29,30,31,32,33,34,35,
-          23,22,21,20,19,18,17,16,15,14,13,12,
-           0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11]
+
+strip1 = range(0,15)
+strip2 = range(15,30)
+strip3 = range(30,45)
+strip4 = range(45,60)
+strip5 = range(60,75)
+strip6 = range(75,90)
+strip7 = range(90,105)
+strip8 = range(105,120)
+strip9 = range(120,135)
+strip10 = range(135,150)
+topL = range(159,165)
+topR= range(153,159)
+
+strip2.reverse()
+strip4.reverse()
+strip6.reverse()
+strip8.reverse()
+strip10.reverse()
+ 
+topR.reverse()
+
+myMatrix=[strip1,strip2,strip3,strip4,strip5,strip6,strip7,strip8,strip9,strip10]
 
 # Feel free to write a fancy set of loops to populate myMatrix
 # if you have a really big display! I used two cheap strings of
