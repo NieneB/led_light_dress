@@ -6,9 +6,6 @@ from neopixel import *
 import time
 
 
-app = Flask(__name__)
-CurrentSignal = "White"
-@app.route('/', methods=['GET'])
 
 strip = Adafruit_NeoPixel(168, 18, 800000)
 strip.begin()
@@ -58,6 +55,9 @@ def oneColor(strip,color):
         strip.setPixelColor(i, color)
     strip.show()
 
+app = Flask(__name__)
+CurrentSignal = "White"
+@app.route('/', methods=['GET'])
 
 def Main():
 	global CurrentSignal
