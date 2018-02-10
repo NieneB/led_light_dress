@@ -3,3 +3,5 @@ function SendSignal(Signal) {
 	xhttp.open("GET", "?Signal=" + Signal, false);
 	xhttp.send();
 }
+
+

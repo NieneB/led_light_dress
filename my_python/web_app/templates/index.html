@@ -15,21 +15,37 @@
 	<button onClick="SendSignal('OFF')" class="button" style="background-color:rgb(255,0,0);">
 		<p>OFF</p>
 	</button>
+	<div class="dropdown">
+		<label>Helderheid:</label>
+		<select id="myDropdown" class="dropdown-content" >
+			<p onClick="SendSignal(10)">10</p>
+			<p onClick="SendSignal(50)">50</p>
+			<p onClick="SendSignal(100)">100</p>
+			<p onClick="SendSignal(255)">255</p>
+		</select>
+	</div>
+
 	<div>
 		<h2>Programma:</h2>
 		<button onClick="SendSignal('P1')" class="button" style="background-color:rgb(255,136,0);">
-			<p>Programma 1</p>
+			<p>Wipe</p>
 		</button>
 		<button onClick="SendSignal('P2')" class="button" style="background-color:rgb(255,136,0);">
-			<p>Programma 2</p>
+			<p>Low energy</p>
 		</button>
 		<button onClick="SendSignal('P3')" class="button" style="background-color:rgb(255,136,0);">
-			<p>Programma 3</p>
+			<p>Rainbow</p>
 		</button>
 	</div>
 	<div>
 		<h2>Kleur:</h2>
-		<button onClick="SendSignal('red')" class="button" style="background-color:rgb(255,0,0);">
+		<button onClick="SendSignal('red')" class="button color" style="background-color:rgb(255,0,0);">
+		</button>
+		<button onClick="SendSignal('blue')" class="button color" style="background-color:rgb(0,255,0);">
+		</button>
+		<button onClick="SendSignal('green')" class="button color" style="background-color:rgb(0,0,255);">
+		</button>
+		<button onClick="SendSignal('pink')" class="button color" style="background-color:rgb(255,30,30);">
 		</button>
 	</div>
 	

@@ -7,7 +7,9 @@ print os.getenv("SUDO_USER")
 from neopixel import *
 import time
 
+COLOR= Color(255,10,20)
 LED_COUNT = 168
+BR= 100
 
 strip = Adafruit_NeoPixel(LED_COUNT, 18, 800000)
 strip.begin()
@@ -38,7 +40,7 @@ ALL_STRIP_MATRIX = [strip1, strip2,strip3,strip4, strip5 ,strip6,strip7,strip8, 
 
 LOW_LED = strip1[12:15] + strip2[12:15] + strip3[12:15] +strip4[12:15] + strip5[12:15] + strip6[12:15] +strip7[12:15]+ strip8[12:15] + strip9[12:15] +strip10[12:15]
 
-
+strip.setBrightness=BR
 
 def wheel(pos):
     """Generate rainbow colors across 0-255 positions."""
@@ -97,11 +99,12 @@ def oneColor(strip,color):
 
 app = Flask(__name__)
 CurrentSignal = "OFF"
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 
 def Main():
 	global CurrentSignal
     global LED_COUNT
+    global COLOR
 	if request.args.get('Signal'):
 		CurrentSignal=request.args.get('Signal')
                 # Setting top aan uit
@@ -112,8 +115,16 @@ def Main():
                         LED_COUNT=150
                 if CurrentSignal=='OFF':
                     oneColor(strip,Color(0,0,0))
+                if CurrentSignal==10:
+                    strip.setBrightness(10)
+                if CurrentSignal==50:
+                    strip.setBrightness(50)
+                if CurrentSignal==100:
+                    strip.setBrightness(100)
+                if CurrentSignal==255:
+                    strip.setBrightness(255)
                 if CurrentSignal=='P1':
-                    print 'P1'
+                    oneColor(strip,Color(0,0,0))
                     colorWipe(strip,Color(255,0,10))
                     colorWipe(strip,Color(0,0,0))
                     colorWipe(strip,Color(255,0,10))
@@ -121,11 +132,25 @@ def Main():
                     colorWipe(strip,Color(255,0,10))
                     colorWipe(strip,Color(0,0,0))
                 if CurrentSignal=='P2':
-                    print 'P2'
-                    lowEnergy(strip)
+                    oneColor(strip,Color(0,0,0))
+                    for i in range(10):
+                        lowEnergy(strip,Color(255,10,20))
+                if CurrentSignal=='P3':
+                    oneColor(strip,Color(0,0,0))
+                    for i in range(10):
+                        lowEnergy(strip,Color(255,10,20))
                 if CurrentSignal=='red':
-                    print 'P2'
-                    rainbow(strip)
+                    COLOR=Color(255,0,0)
+                    oneColor(strip,COLOR)
+                if CurrentSignal=='blue':
+                    COLOR=Color(0,0,255)
+                    oneColor(strip,COLOR)
+                if CurrentSignal=='green':
+                    COLOR=Color(0,255,0)
+                    oneColor(strip,COLOR)
+                if CurrentSignal=='pink':
+                    COLOR=Color(255,20,20)
+                    oneColor(strip,COLOR)
 	return render_template('index.html')
 
 
