@@ -8,7 +8,7 @@ from neopixel import *
 import time
 
 COLOR= Color(255,10,20)
-LED_COUNT = 168
+LED_COUNT = 162
 BR= 100
 
 strip = Adafruit_NeoPixel(LED_COUNT, 18, 800000)
@@ -24,8 +24,8 @@ strip7 = range(90,105)
 strip8 = range(105,120)
 strip9 = range(120,135)
 strip10 = range(135,150)
-topL = range(159,165)
-topR= range(153,159)
+topL = range(153,159)
+topR= range(159,165)
 
 strip2.reverse()
 strip4.reverse()
@@ -40,7 +40,7 @@ ALL_STRIP_MATRIX = [strip1, strip2,strip3,strip4, strip5 ,strip6,strip7,strip8, 
 
 LOW_LED = strip1[12:15] + strip2[12:15] + strip3[12:15] +strip4[12:15] + strip5[12:15] + strip6[12:15] +strip7[12:15]+ strip8[12:15] + strip9[12:15] +strip10[12:15]
 
-strip.setBrightness=BR
+strip.setBrightness(BR)
 
 def wheel(pos):
 	"""Generate rainbow colors across 0-255 positions."""
@@ -53,14 +53,14 @@ def wheel(pos):
 		pos -= 170
 		return Color(0, pos * 3, 255 - pos * 3)
 
-def rainbow(strip, wait_ms=20, iterations=5):
+def rainbow(strip, wait_ms=20, iterations=15):
 	"""Draw rainbow that fades across all pixels at once."""
 	for j in range(256*iterations):
 		for i in range(LED_COUNT):
 			if LED_COUNT==150:
 				strip.setPixelColor(ALL_LED[i], wheel((int(i * 256 / LED_COUNT) + j) & 255))
 			else:
-				strip.setPixelColor(ALL_LED_TOP[i],wheel((int(i * 256 / LED_COUNT) + j) & 255))
+				strip.setPixelColor(ALL_LED_TOP[i],wheel((int(i * 256 / 162) + j) & 255))
 		strip.show()
 		time.sleep(wait_ms/1000.0)
 
@@ -84,15 +84,15 @@ def colorWipe(strip,color, wait_ms=80):
 		strip.show()
 		time.sleep(wait_ms/1000.0)
 
-def lowEnergy(strip, color, wait_ms=50, iterations=10):
+def lowEnergy(strip, color, wait_ms=300, iterations=15):
 	"""Movie theater light style chaser animation."""
 	for j in range(iterations):
 		for q in range(3):
-			for i in range(0, 35, 3):
+			for i in range(0, 30, 3):
 				strip.setPixelColor(LOW_LED[i]+q, color)
 			strip.show()
 			time.sleep(wait_ms/1000.0)
-			for i in range(0, 35, 3):
+			for i in range(0, 30, 3):
 				strip.setPixelColor(LOW_LED[i]+q, 0)
 
 def oneColor(strip,color):
@@ -118,14 +118,18 @@ def Main():
 				LED_COUNT=150
 		if CurrentSignal=='OFF':
 			oneColor(strip,Color(0,0,0))
-		if CurrentSignal==10:
+                if CurrentSignal=='a':
 			strip.setBrightness(10)
-		if CurrentSignal==50:
+                        strip.show()
+		if CurrentSignal=='b':
 			strip.setBrightness(50)
-		if CurrentSignal==100:
+                        strip.show()
+		if CurrentSignal=='c':
 			strip.setBrightness(100)
-		if CurrentSignal==255:
+                        strip.show()
+		if CurrentSignal=='d':
 			strip.setBrightness(255)
+                        strip.show()
 		if CurrentSignal=='P1':
 			oneColor(strip,Color(0,0,0))
 			colorWipe(strip,Color(255,0,10))
@@ -140,9 +144,8 @@ def Main():
 				lowEnergy(strip,Color(255,10,20))
 		if CurrentSignal=='P3':
 			oneColor(strip,Color(0,0,0))
-			for i in range(10):
-				lowEnergy(strip,Color(255,10,20))
-		if CurrentSignal=='red':
+	                rainbow(strip)
+                if CurrentSignal=='red':
 			COLOR=Color(255,0,0)
 			oneColor(strip,COLOR)
 		if CurrentSignal=='blue':
