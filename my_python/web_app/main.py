@@ -110,50 +110,50 @@ def Main():
 	global COLOR
 	if request.args.get('Signal'):
 		CurrentSignal=request.args.get('Signal')
-				# Setting top aan uit
-				if CurrentSignal=='topje':
-					if (LED_COUNT==150):
-						LED_COUNT = 168
-					else:
-						LED_COUNT=150
-				if CurrentSignal=='OFF':
-					oneColor(strip,Color(0,0,0))
-				if CurrentSignal==10:
-					strip.setBrightness(10)
-				if CurrentSignal==50:
-					strip.setBrightness(50)
-				if CurrentSignal==100:
-					strip.setBrightness(100)
-				if CurrentSignal==255:
-					strip.setBrightness(255)
-				if CurrentSignal=='P1':
-					oneColor(strip,Color(0,0,0))
-					colorWipe(strip,Color(255,0,10))
-					colorWipe(strip,Color(0,0,0))
-					colorWipe(strip,Color(255,0,10))
-					colorWipe(strip,Color(0,0,0))
-					colorWipe(strip,Color(255,0,10))
-					colorWipe(strip,Color(0,0,0))
-				if CurrentSignal=='P2':
-					oneColor(strip,Color(0,0,0))
-					for i in range(10):
-						lowEnergy(strip,Color(255,10,20))
-				if CurrentSignal=='P3':
-					oneColor(strip,Color(0,0,0))
-					for i in range(10):
-						lowEnergy(strip,Color(255,10,20))
-				if CurrentSignal=='red':
-					COLOR=Color(255,0,0)
-					oneColor(strip,COLOR)
-				if CurrentSignal=='blue':
-					COLOR=Color(0,0,255)
-					oneColor(strip,COLOR)
-				if CurrentSignal=='green':
-					COLOR=Color(0,255,0)
-					oneColor(strip,COLOR)
-				if CurrentSignal=='pink':
-					COLOR=Color(255,20,20)
-					oneColor(strip,COLOR)
+		# Setting top aan uit
+		if CurrentSignal=='topje':
+			if (LED_COUNT==150):
+				LED_COUNT = 168
+			else:
+				LED_COUNT=150
+		if CurrentSignal=='OFF':
+			oneColor(strip,Color(0,0,0))
+		if CurrentSignal==10:
+			strip.setBrightness(10)
+		if CurrentSignal==50:
+			strip.setBrightness(50)
+		if CurrentSignal==100:
+			strip.setBrightness(100)
+		if CurrentSignal==255:
+			strip.setBrightness(255)
+		if CurrentSignal=='P1':
+			oneColor(strip,Color(0,0,0))
+			colorWipe(strip,Color(255,0,10))
+			colorWipe(strip,Color(0,0,0))
+			colorWipe(strip,Color(255,0,10))
+			colorWipe(strip,Color(0,0,0))
+			colorWipe(strip,Color(255,0,10))
+			colorWipe(strip,Color(0,0,0))
+		if CurrentSignal=='P2':
+			oneColor(strip,Color(0,0,0))
+			for i in range(10):
+				lowEnergy(strip,Color(255,10,20))
+		if CurrentSignal=='P3':
+			oneColor(strip,Color(0,0,0))
+			for i in range(10):
+				lowEnergy(strip,Color(255,10,20))
+		if CurrentSignal=='red':
+			COLOR=Color(255,0,0)
+			oneColor(strip,COLOR)
+		if CurrentSignal=='blue':
+			COLOR=Color(0,0,255)
+			oneColor(strip,COLOR)
+		if CurrentSignal=='green':
+			COLOR=Color(0,255,0)
+			oneColor(strip,COLOR)
+		if CurrentSignal=='pink':
+			COLOR=Color(255,20,20)
+			oneColor(strip,COLOR)
 	return render_template('index.html')
 
 
