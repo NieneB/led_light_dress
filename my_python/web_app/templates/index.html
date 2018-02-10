@@ -12,21 +12,27 @@
 	<button onClick="SendSignal('topje')" class="button" id="topje" style="background-color:rgb(255,136,0);">
 		<p>TOP AAN/UIT</p>
 	</button>
-
-	<button onClick="SendSignal('P1')" class="button" style="background-color:rgb(255,136,0);">
-		<p>Programma 1</p>
-	</button>
-	<button onClick="SendSignal('P2')" class="button" style="background-color:rgb(255,136,0);">
-		<p>Programma 2</p>
-	</button><button onClick="SendSignal('P3')" class="button" style="background-color:rgb(255,136,0);">
-		<p>Programma 3</p>
-	</button>
-	</button>
-	<button onClick="SendSignal('red')" class="button" style="background-color:rgb(255,0,0);">
-	</button>
 	<button onClick="SendSignal('OFF')" class="button" style="background-color:rgb(255,0,0);">
 		<p>OFF</p>
 	</button>
+	<div>
+		<h2>Programma:</h2>
+		<button onClick="SendSignal('P1')" class="button" style="background-color:rgb(255,136,0);">
+			<p>Programma 1</p>
+		</button>
+		<button onClick="SendSignal('P2')" class="button" style="background-color:rgb(255,136,0);">
+			<p>Programma 2</p>
+		</button>
+		<button onClick="SendSignal('P3')" class="button" style="background-color:rgb(255,136,0);">
+			<p>Programma 3</p>
+		</button>
+	</div>
+	<div>
+		<h2>Kleur:</h2>
+		<button onClick="SendSignal('red')" class="button" style="background-color:rgb(255,0,0);">
+		</button>
+	</div>
+	
 	<script type="text/javascript" src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
 </html>
