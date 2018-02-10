@@ -7,9 +7,9 @@ print os.getenv("SUDO_USER")
 from neopixel import *
 import time
 
+LED_COUNT = 168
 
-
-strip = Adafruit_NeoPixel(168, 18, 800000)
+strip = Adafruit_NeoPixel(LED_COUNT, 18, 800000)
 strip.begin()
 
 strip1 = range(0,15)
@@ -32,6 +32,10 @@ strip8.reverse()
 strip10.reverse() 
 topR.reverse()
 
+ALL_LED_TOP = strip1 + strip2 + topR + strip3 +strip4 + strip5 + strip6 +strip7+ strip8 + strip9 +strip10 + topL
+ALL_LED = strip1 + strip2 + strip3 +strip4 + strip5 + strip6 +strip7+ strip8 + strip9 +strip10
+ALL_STRIP_MATRIX = [strip1, strip2,strip3,strip4, strip5 ,strip6,strip7,strip8, strip9,strip10]
+
 def colorWipe(strip,color, wait_ms=80):
     for i in range(0,6):
         strip.setPixelColor(topL[i],color)
@@ -53,12 +57,12 @@ def colorWipe(strip,color, wait_ms=80):
         time.sleep(wait_ms/1000.0)
 
 def oneColor(strip,color):
-    for i in range(strip.numPixels()):
+    for i in range(LED_COUNT):
         strip.setPixelColor(i, color)
     strip.show()
 
 app = Flask(__name__)
-CurrentSignal = "White"
+CurrentSignal = "OFF"
 @app.route('/', methods=['GET'])
 
 def Main():
@@ -66,12 +70,24 @@ def Main():
 
 	if request.args.get('Signal'):
 		CurrentSignal=request.args.get('Signal')
+                # Setting top aan uit
+                if CurrentSignal=='topje':
+                    if (LED_COUNT==150):
+                        LED_COUNT = 168
+                    else:
+                        LED_COUNT=150
+                if CurrentSignal=='OFF':
+                    oneColor(strip,Color(0,0,0))
                 if CurrentSignal=='P1':
                     print 'P1'
                     colorWipe(strip,Color(255,0,10))
+                    colorWipe(strip,Color(0,0,0))
                 if CurrentSignal=='P2':
                     print 'P2'
                     colorWipe(strip,Color(0,0,0))
+                if CurrentSignal=='red':
+                    print 'P2'
+                    oneColor(strip,Color(255,0,0))
 	return render_template('index.html')
 
 
